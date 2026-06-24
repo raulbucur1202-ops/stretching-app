@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "Stretching App",
+    "slug": "stretching-app",
+    "version": "0.1.0",
+    "scheme": "stretchingapp",
+    "platforms": ["ios","android"],
+    "orientation": "portrait",
+    "sdkVersion": "48.0.0",
+    "updates": {"fallbackToCacheTimeout":0},
+    "assetBundlePatterns": ["**/*"]
+  }
+}
