@@ -1,0 +1,53 @@
+==========================================================================
+VORLAGE: Neue Routine hinzufügen
+==========================================================================
+
+So fügst du eine neue Routine hinzu – du musst NUR die Datei
+data/routines.ts bearbeiten, sonst NICHTS. Die neue Routine erscheint
+danach automatisch in der Bibliothek, in den Filtern, im Detail-Screen
+und im Player.
+
+ANLEITUNG (3 Schritte):
+1. Öffne  data/routines.ts
+2. Kopiere den Block unten und füge ihn INNERHALB von  "export const routines = { ... }"
+   ein (z.B. direkt vor der schließenden Zeile  "};"  der Liste).
+   Achte darauf, dass davor ein Komma steht.
+3. Fülle die Felder aus und vergib eine NEUE, eindeutige id (Kurz-Slug).
+   Speichern – fertig. Die App lädt automatisch neu.
+
+--------------------------------------------------------------------------
+BLOCK ZUM KOPIEREN:
+--------------------------------------------------------------------------
+
+  'meine-neue-routine': {
+    id: 'meine-neue-routine',          // eindeutiger Kurz-Slug (gleich wie der Schlüssel oben)
+    title: 'Titel der Routine',         // Anzeigename
+    subtitle: 'Kurzer Untertitel',      // ein kurzer Satz
+    category: 'Mobility',               // 'Mobility' | 'Dehnen' | 'Aktivierung' | 'Entspannung'
+    bodyArea: 'Ganzkörper',             // Körperregion (wird angezeigt + ist durchsuchbar)
+    level: 'Anfänger',                  // 'Anfänger' | 'Fortgeschritten' | 'Profi'
+    premium: false,                     // false = gratis, true = nur mit Premium
+    description: 'Was die Routine bewirkt (1–2 Sätze).',
+    targetMuscles: ['Muskel 1', 'Muskel 2', 'Muskel 3'],
+    scienceNote: 'Optionaler Hintergrund-Satz (oder diese Zeile weglassen).',
+    exercises: [
+      {
+        name: 'Name der Übung',
+        durationSeconds: 40,            // Dauer in Sekunden
+        cue: 'Kurzer Merksatz',         // darf '' sein
+        instruction: 'Ausführliche Anleitung.',
+        modification: 'Leichtere Variante.', // '' = keine
+        warning: '',                    // Sicherheitshinweis; '' = keiner
+        // gif: 'https://...'           // optional: Vorschau-Animation
+      },
+      // ... weitere Übungen nach demselben Muster ...
+    ],
+  },
+
+--------------------------------------------------------------------------
+PFLICHTFELDER: id, title, subtitle, category, bodyArea, level, premium,
+               description, targetMuscles, exercises
+               (jede Übung: name, durationSeconds, cue, instruction,
+                modification, warning)
+OPTIONAL:      scienceNote (Routine), gif (Übung)
+--------------------------------------------------------------------------
